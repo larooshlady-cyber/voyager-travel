@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voyager — Your Journey Starts Here</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+        </div>
+        <span class="logo-text">Voyager</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Hotels</a></li>
+        <li><a href="#">Flights</a></li>
+        <li><a href="#">Tours</a></li>
+        <li><a href="#">Transfers</a></li>
+        <li><a href="#" class="nav-deals">Deals</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-lang" title="Language">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          EN
+        </button>
+        <button class="nav-icon-btn" title="Saved">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </button>
+        <div class="nav-divider"></div>
+        <button class="btn-secondary">Log in</button>
+        <button class="btn-cta">Sign up free</button>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Trusted by 2M+ travelers worldwide
+          </div>
+          <h1 class="hero-title">
+            Find your next<br>adventure in<br><span class="typewriter-wrap"><span class="typewriter" id="typewriter"></span><span class="typewriter-cursor">|</span></span>
+          </h1>
+          <p class="hero-subtitle">
+            Flights, hotels, tours, and transfers — all in one place.<br>You just pack your bags.
+          </p>
+        </div>
+        <div class="hero-right">
+          <div class="hero-image-stack">
+            <img class="hero-img-main" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80" alt="Tropical beach">
+            <img class="hero-img-float" src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80" alt="Bali temple">
+            <div class="hero-img-card">
+              <div class="hero-card-row">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                <span>Trip booked!</span>
+              </div>
+              <small>Bali · 5 nights · 2 guests</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Box -->
+      <div class="search-box">
+        <div class="search-tabs">
+          <button class="search-tab tab-stays active" data-tab="stays">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M3 7v14M21 7v14M6 11h4v4H6zM14 11h4v4h-4zM9 3h6l3 4H6l3-4z"/></svg>
+            Hotels
+          </button>
+          <button class="search-tab tab-flights" data-tab="flights">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            Flights
+          </button>
+          <button class="search-tab tab-tours" data-tab="tours">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3V7z"/><path d="M9 4v13M15 7v13"/></svg>
+            Guided Tours
+          </button>
+          <button class="search-tab tab-cars" data-tab="cars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14v-5H5v5zM19 9.5l-1.5-4.5H6.5L5 9.5"/><circle cx="7.5" cy="15.5" r="1.5"/><circle cx="16.5" cy="15.5" r="1.5"/></svg>
+            Car Rental
+          </button>
+          <button class="search-tab tab-transfers" data-tab="transfers">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17H3v-6l2-4h12l2 4v6h-2M7 17a2 2 0 100-4 2 2 0 000 4zM17 17a2 2 0 100-4 2 2 0 000 4z"/><path d="M5 7V5a1 1 0 011-1h4l2 3"/></svg>
+            Transfers
+          </button>
+        </div>
+
+        <!-- Stays -->
+        <div class="search-form active" data-form="stays">
+          <div class="search-bar">
+            <div class="search-cell search-cell-wide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Where</span>
+                <input type="text" placeholder="City, hotel, or destination">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Check in</span>
+                <input type="text" placeholder="Add date">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Check out</span>
+                <input type="text" placeholder="Add date">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Guests</span>
+                <input type="text" placeholder="2 adults">
+              </div>
+            </div>
+            <button class="search-btn btn-stays">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Flights -->
+        <div class="search-form" data-form="flights">
+          <div class="search-bar">
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9" stroke-dasharray="4 2"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">From</span>
+                <input type="text" placeholder="Departure city">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">To</span>
+                <input type="text" placeholder="Arrival city">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Depart</span>
+                <input type="text" placeholder="Add date">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Return</span>
+                <input type="text" placeholder="Add date">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell search-cell-narrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Travelers</span>
+                <input type="text" placeholder="1 adult">
+              </div>
+            </div>
+            <button class="search-btn btn-flights">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Guided Tours -->
+        <div class="search-form" data-form="tours">
+          <div class="search-bar">
+            <div class="search-cell search-cell-wide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Destination</span>
+                <input type="text" placeholder="Georgia, Tbilisi, Kazbegi...">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Start date</span>
+                <input type="text" placeholder="Add date">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Group size</span>
+                <input type="text" placeholder="2 travelers">
+              </div>
+            </div>
+            <button class="search-btn btn-tours">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Car Rental -->
+        <div class="search-form" data-form="cars">
+          <div class="search-bar">
+            <div class="search-cell search-cell-wide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Pick-up location</span>
+                <input type="text" placeholder="City, airport, or address">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Pick-up date</span>
+                <input type="text" placeholder="Add date">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Drop-off date</span>
+                <input type="text" placeholder="Add date">
+              </div>
+            </div>
+            <button class="search-btn btn-cars">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Transfers -->
+        <div class="search-form" data-form="transfers">
+          <div class="search-bar">
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9" stroke-dasharray="4 2"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Pick-up</span>
+                <input type="text" placeholder="Airport, hotel, or address">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Drop-off</span>
+                <input type="text" placeholder="Airport, hotel, or address">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Date</span>
+                <input type="text" placeholder="Add date">
+              </div>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-cell search-cell-narrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Passengers</span>
+                <input type="text" placeholder="2">
+              </div>
+            </div>
+            <button class="search-btn btn-transfers">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust Row -->
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Secure payment
+        </div>
+        <div class="trust-dot"></div>
+        <div class="trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          24/7 support
+        </div>
+        <div class="trust-dot"></div>
+        <div class="trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Free cancellation
+        </div>
+        <div class="trust-dot"></div>
+        <div class="trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Best price guarantee
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">2M+</span>
+          <span class="stat-text">Happy travelers</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">150+</span>
+          <span class="stat-text">Destinations</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">4.8</span>
+          <span class="stat-text">Average rating</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">24/7</span>
+          <span class="stat-text">Customer support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <div class="section-header section-header-row">
+        <div>
+          <div class="section-label">Explore</div>
+          <h2 class="section-title">Popular destinations</h2>
+        </div>
+        <a href="#" class="section-link">View all destinations <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="dest-grid">
+        <a href="#" class="dest-card dest-large">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80" alt="Bali" loading="lazy">
+          <div class="dest-overlay"></div>
+          <div class="dest-content">
+            <span class="dest-tag">Trending</span>
+            <h3>Bali</h3>
+            <p>Indonesia · 234 properties</p>
+          </div>
+        </a>
+        <a href="#" class="dest-card">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80" alt="Paris" loading="lazy">
+          <div class="dest-overlay"></div>
+          <div class="dest-content">
+            <h3>Paris</h3>
+            <p>France · 412 properties</p>
+          </div>
+        </a>
+        <a href="#" class="dest-card">
+          <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80" alt="Tokyo" loading="lazy">
+          <div class="dest-overlay"></div>
+          <div class="dest-content">
+            <h3>Tokyo</h3>
+            <p>Japan · 318 properties</p>
+          </div>
+        </a>
+        <a href="#" class="dest-card">
+          <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80" alt="Dubai" loading="lazy">
+          <div class="dest-overlay"></div>
+          <div class="dest-content">
+            <span class="dest-tag">Hot</span>
+            <h3>Dubai</h3>
+            <p>UAE · 275 properties</p>
+          </div>
+        </a>
+        <a href="#" class="dest-card">
+          <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&q=80" alt="Amalfi" loading="lazy">
+          <div class="dest-overlay"></div>
+          <div class="dest-content">
+            <h3>Amalfi Coast</h3>
+            <p>Italy · 156 properties</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exclusive Deals -->
+  <section class="section section-dark" id="deals">
+    <div class="container">
+      <div class="section-header section-header-row section-header-light">
+        <div>
+          <div class="section-label section-label-light">Limited time</div>
+          <h2 class="section-title">Exclusive deals</h2>
+        </div>
+        <a href="#" class="section-link section-link-light">See all deals <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="deals-grid">
+        <article class="deal-card">
+          <div class="deal-img">
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80" alt="Maldives" loading="lazy">
+            <span class="deal-badge">-35%</span>
+            <button class="card-save" aria-label="Save">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="deal-body">
+            <div class="deal-meta">
+              <span class="deal-label deal-label-indigo">Hotel</span>
+              <span class="deal-rating">4.9 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+            </div>
+            <h3>Soneva Fushi Resort & Spa</h3>
+            <p class="deal-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Maldives
+            </p>
+            <div class="deal-footer">
+              <div class="deal-price">
+                <span class="price-amount">$553</span>
+                <span class="price-was">$850</span>
+              </div>
+              <span class="price-per">/night</span>
+            </div>
+          </div>
+        </article>
+        <article class="deal-card">
+          <div class="deal-img">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80" alt="London" loading="lazy">
+            <span class="deal-badge">-28%</span>
+            <button class="card-save" aria-label="Save">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="deal-body">
+            <div class="deal-meta">
+              <span class="deal-label deal-label-blue">Flight</span>
+              <span class="deal-rating">4.7 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+            </div>
+            <h3>New York to London Round Trip</h3>
+            <p class="deal-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+              British Airways, Direct
+            </p>
+            <div class="deal-footer">
+              <div class="deal-price">
+                <span class="price-amount">$490</span>
+                <span class="price-was">$680</span>
+              </div>
+              <span class="price-per">/person</span>
+            </div>
+          </div>
+        </article>
+        <article class="deal-card">
+          <div class="deal-img">
+            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80" alt="Santorini" loading="lazy">
+            <span class="deal-badge deal-badge-gold">Best value</span>
+            <button class="card-save" aria-label="Save">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="deal-body">
+            <div class="deal-meta">
+              <span class="deal-label deal-label-green">Package</span>
+              <span class="deal-rating">4.8 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+            </div>
+            <h3>7-Day Santorini Escape</h3>
+            <p class="deal-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Flight + Hotel included
+            </p>
+            <div class="deal-footer">
+              <div class="deal-price">
+                <span class="price-amount">$1,260</span>
+                <span class="price-was">$2,100</span>
+              </div>
+              <span class="price-per">/person</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Voyager -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <div class="section-label">Why us</div>
+        <h2 class="section-title">Travel with confidence</h2>
+        <p class="section-desc" style="max-width: 460px; margin: 0 auto;">Everything you need for a worry-free journey, from booking to landing back home.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon feature-icon-indigo">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h4>Secure Booking</h4>
+          <p>Bank-level encryption protects every transaction. Your payment details are always safe with us.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon-blue">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4>24/7 Support</h4>
+          <p>Our travel experts are available around the clock. Get help anytime, anywhere in the world.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon-amber">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h4>Best Price Guarantee</h4>
+          <p>Found it cheaper elsewhere? We'll match the price and give you an extra 10% off on top.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon-green">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <h4>Free Cancellation</h4>
+          <p>Plans change, we get it. Cancel for free on most bookings up to 48 hours before check-in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Hotels -->
+  <section class="section" id="hotels">
+    <div class="container">
+      <div class="section-header section-header-row">
+        <div>
+          <div class="section-label">Stay</div>
+          <h2 class="section-title">Trending stays</h2>
+        </div>
+        <a href="#" class="section-link">View all hotels <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="hotels-scroll">
+        <article class="hotel-card">
+          <a href="#" class="hotel-img-link">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=80" alt="Soneva Fushi" loading="lazy">
+            <div class="hotel-img-overlay">
+              <span class="hotel-rating"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.9</span>
+              <span class="hotel-place-badge">Maldives</span>
+            </div>
+          </a>
+          <div class="hotel-info">
+            <h3>Soneva Fushi Resort</h3>
+            <div class="hotel-tags"><span>Pool</span><span>Spa</span><span>Beach</span></div>
+            <div class="hotel-bottom">
+              <span class="hotel-price">$420<small>/night</small></span>
+              <button class="hotel-book">Book</button>
+            </div>
+          </div>
+        </article>
+        <article class="hotel-card">
+          <a href="#" class="hotel-img-link">
+            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=500&q=80" alt="Canaves Oia" loading="lazy">
+            <div class="hotel-img-overlay">
+              <span class="hotel-rating"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.8</span>
+              <span class="hotel-place-badge">Santorini</span>
+            </div>
+          </a>
+          <div class="hotel-info">
+            <h3>Canaves Oia Suites</h3>
+            <div class="hotel-tags"><span>Pool</span><span>View</span><span>Restaurant</span></div>
+            <div class="hotel-bottom">
+              <span class="hotel-price">$380<small>/night</small></span>
+              <button class="hotel-book">Book</button>
+            </div>
+          </div>
+        </article>
+        <article class="hotel-card">
+          <a href="#" class="hotel-img-link">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=500&q=80" alt="Chedi Andermatt" loading="lazy">
+            <div class="hotel-img-overlay">
+              <span class="hotel-rating"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.7</span>
+              <span class="hotel-place-badge">Switzerland</span>
+            </div>
+          </a>
+          <div class="hotel-info">
+            <h3>The Chedi Andermatt</h3>
+            <div class="hotel-tags"><span>Spa</span><span>Ski</span><span>Restaurant</span></div>
+            <div class="hotel-bottom">
+              <span class="hotel-price">$350<small>/night</small></span>
+              <button class="hotel-book">Book</button>
+            </div>
+          </div>
+        </article>
+        <article class="hotel-card">
+          <a href="#" class="hotel-img-link">
+            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80" alt="Viceroy Bali" loading="lazy">
+            <div class="hotel-img-overlay">
+              <span class="hotel-rating"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.9</span>
+              <span class="hotel-place-badge">Bali</span>
+            </div>
+          </a>
+          <div class="hotel-info">
+            <h3>Viceroy Bali Resort</h3>
+            <div class="hotel-tags"><span>Pool</span><span>Jungle</span><span>Spa</span></div>
+            <div class="hotel-bottom">
+              <span class="hotel-price">$290<small>/night</small></span>
+              <button class="hotel-book">Book</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <img class="cta-bg-img" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1400&q=80" alt="" loading="lazy">
+        <div class="cta-bg-overlay"></div>
+        <div class="cta-content">
+          <h2>Your next adventure<br>is one click away</h2>
+          <p>Join 2 million travelers who book smarter with Voyager. Sign up today and get $50 off your first trip.</p>
+          <div class="cta-actions">
+            <button class="btn-primary btn-lg btn-white">Get started — it's free</button>
+            <div class="cta-trust-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              No credit card required
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        </div>
+        <h3>Get travel deals in your inbox</h3>
+        <p>Subscribe for exclusive offers, destination guides, and tips every week.</p>
+        <form class="newsletter-form">
+          <div class="newsletter-input-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <input type="email" placeholder="Enter your email address">
+          </div>
+          <button type="submit">Subscribe</button>
+        </form>
+        <span class="newsletter-note">No spam, ever. Unsubscribe anytime.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-mark">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            </div>
+            <span class="logo-text">Voyager</span>
+          </a>
+          <p>Making travel seamless, affordable, and unforgettable for everyone.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Safety</a>
+          <a href="#">Cancellation</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#">Hotels</a>
+          <a href="#">Flights</a>
+          <a href="#">Guided Tours</a>
+          <a href="#">Transfers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+          <a href="#">Licenses</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Voyager Ltd. All rights reserved.</span>
+        <div class="footer-payments">
+          <span>Visa</span>
+          <span>Mastercard</span>
+          <span>Amex</span>
+          <span>PayPal</span>
+          <span>Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

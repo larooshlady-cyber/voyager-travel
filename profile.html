@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile — Voyager</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .profile-header-section { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 120px 0 48px; position: relative; overflow: hidden; }
+    .profile-header-section::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 80%, rgba(99,102,241,0.15) 0%, transparent 60%); pointer-events: none; }
+    .profile-header-inner { display: flex; align-items: center; gap: 28px; position: relative; z-index: 1; }
+    .profile-avatar { width: 88px; height: 88px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-light), #8b5cf6); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: #fff; flex-shrink: 0; box-shadow: 0 4px 24px rgba(99,102,241,0.35); border: 3px solid rgba(255,255,255,0.15); }
+    .profile-header-info h1 { color: #fff; font-size: 26px; font-weight: 700; margin: 0 0 4px; }
+    .profile-header-meta { display: flex; align-items: center; gap: 16px; color: rgba(255,255,255,0.6); font-size: 14px; } .profile-header-meta span { display: flex; align-items: center; gap: 5px; }
+    .profile-header-actions { margin-left: auto; }
+    .btn-edit-profile { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px 22px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .btn-edit-profile:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.35); }
+    .profile-dashboard { padding: 40px 0 80px; background: var(--surface-sunken); min-height: 60vh; }
+    .dashboard-grid { display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+    .profile-tabs { display: flex; gap: 6px; margin-bottom: 28px; background: #fff; border-radius: var(--radius-md); padding: 5px; border: 1px solid var(--border-strong); width: fit-content; }
+    .profile-tab { padding: 10px 24px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; color: var(--text-secondary); background: transparent; border: none; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .profile-tab:hover { color: var(--text-primary); background: var(--surface-sunken); }
+    .profile-tab.active { background: var(--accent-light); color: #fff; box-shadow: 0 2px 8px rgba(99,102,241,0.3); }
+    .tab-content { display: none; } .tab-content.active { display: block; }
+    .trip-card { border-radius: var(--radius-lg); border: 1px solid var(--border-strong); overflow: hidden; margin-bottom: 20px; transition: box-shadow 0.2s; background: #fff; }
+    .trip-card:hover { box-shadow: var(--shadow-md); } .trip-card-upcoming { border: 2px solid var(--accent-light); box-shadow: 0 4px 24px rgba(99,102,241,0.1); }
+    .trip-card-inner { display: flex; } .trip-card-img { width: 220px; min-height: 180px; flex-shrink: 0; overflow: hidden; } .trip-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .trip-card-body { padding: 20px 24px; flex: 1; display: flex; flex-direction: column; justify-content: center; } .trip-card-body h3 { font-size: 18px; font-weight: 700; margin: 0 0 6px; }
+    .trip-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .trip-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: var(--radius-full); }
+    .trip-badge-confirmed { background: #ecfdf5; color: #059669; } .trip-badge-completed { background: var(--surface-sunken); color: var(--text-secondary); }
+    .trip-badge-upcoming-label { background: #eef2ff; color: var(--accent-light); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .trip-card-location { font-size: 14px; color: var(--text-secondary); margin: 0 0 4px; display: flex; align-items: center; gap: 5px; }
+    .trip-card-details { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--text-tertiary); margin: 8px 0 14px; } .trip-card-details span { display: flex; align-items: center; gap: 4px; }
+    .trip-card-actions { display: flex; gap: 12px; } .trip-link { font-size: 13px; font-weight: 600; color: var(--accent-light); cursor: pointer; transition: color 0.2s; }
+    .trip-link:hover { color: var(--accent); text-decoration: underline; } .trip-link-secondary { color: var(--text-secondary); }
+    .trip-stars { display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: #f59e0b; } .trip-stars svg { fill: #f59e0b; }
+    .trips-section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-tertiary); margin: 32px 0 16px; }
+    .saved-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .saved-card { background: #fff; border-radius: var(--radius-md); border: 1px solid var(--border-strong); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+    .saved-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .saved-card-img { position: relative; height: 160px; overflow: hidden; } .saved-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .saved-card-remove { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.9); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; } .saved-card-remove svg { fill: #ef4444; stroke: #ef4444; }
+    .saved-card-body h4 { font-size: 15px; font-weight: 700; margin: 0 0 4px; } .saved-card-loc { font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 4px; margin-bottom: 8px; }
+    .saved-card-bottom { display: flex; align-items: center; justify-content: space-between; } .saved-card-price { font-size: 16px; font-weight: 700; } .saved-card-price small { font-size: 12px; font-weight: 400; color: var(--text-tertiary); }
+    .saved-card-rating { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 3px; } .saved-card-rating svg { fill: #f59e0b; }
+    .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; } .toggle-row-label { font-size: 14px; font-weight: 500; } .toggle-row-desc { font-size: 13px; color: var(--text-tertiary); margin-top: 2px; }
+    .toggle-switch { position: relative; width: 48px; height: 26px; flex-shrink: 0; } .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; inset: 0; background: #cbd5e1; border-radius: 26px; cursor: pointer; transition: background 0.2s; }
+    .toggle-slider::before { content: ''; position: absolute; width: 20px; height: 20px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+    .toggle-switch input:checked + .toggle-slider { background: var(--accent-light); } .toggle-switch input:checked + .toggle-slider::before { transform: translateX(22px); }
+    .danger-zone { border-color: #fecaca; background: #fef2f2; } .danger-zone .form-section-title { color: #dc2626; } .danger-zone p { font-size: 14px; color: var(--text-secondary); margin: 0 0 16px; }
+    .btn-danger { color: #dc2626; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; } .btn-danger:hover { color: #b91c1c; text-decoration: underline; }
+    .btn-save, .btn-update { color: #fff; border: none; padding: 11px 28px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; font-family: inherit; }
+    .btn-save { background: var(--accent-light); } .btn-save:hover { background: var(--accent); } .btn-update { background: var(--text-primary); } .btn-update:hover { background: #000; }
+    .stats-sidebar { background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border-strong); padding: 28px; position: sticky; top: 100px; } .stats-sidebar h3 { font-size: 16px; font-weight: 700; margin: 0 0 24px; }
+    .stat-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--surface-sunken); } .stat-row:last-child { border-bottom: none; }
+    .stat-row-label { font-size: 14px; color: var(--text-secondary); font-weight: 500; } .stat-row-value { font-size: 18px; font-weight: 700; }
+    .gold-badge { display: inline-flex; align-items: center; gap: 5px; background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; font-size: 13px; font-weight: 700; padding: 4px 14px; border-radius: var(--radius-full); box-shadow: 0 2px 8px rgba(245,158,11,0.3); } .gold-badge svg { fill: #fff; }
+    @media (max-width: 900px) { .dashboard-grid { grid-template-columns: 1fr; } .stats-sidebar { position: static; } .trip-card-inner { flex-direction: column; } .trip-card-img { width: 100%; height: 180px; min-height: auto; } }
+    @media (max-width: 640px) { .profile-header-inner { flex-direction: column; text-align: center; } .profile-header-meta { justify-content: center; flex-wrap: wrap; } .profile-header-actions { margin-left: 0; } .profile-tabs { width: 100%; justify-content: center; } .profile-tab { padding: 10px 16px; font-size: 13px; } .saved-grid { grid-template-columns: 1fr; } .profile-header-section { padding: 100px 0 36px; } }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+        </div>
+        <span class="logo-text">Voyager</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="transfers.html">Transfers</a></li>
+        <li><a href="deals.html" class="nav-deals">Deals</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-lang" title="Language">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          EN
+        </button>
+        <a href="profile.html" class="nav-icon-btn" title="Saved">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </a>
+        <div class="nav-divider"></div>
+        <a href="login.html" class="btn-secondary">Log in</a>
+        <a href="login.html" class="btn-cta">Sign up free</a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <section class="profile-header-section">
+    <div class="container">
+      <div class="breadcrumb" style="margin-bottom: 24px;">
+        <a href="index.html">Home</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span class="current">My Profile</span>
+      </div>
+      <div class="profile-header-inner">
+        <div class="profile-avatar">JD</div>
+        <div class="profile-header-info">
+          <h1>John Doe</h1>
+          <div class="profile-header-meta">
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Member since 2024
+            </span>
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+              john.doe@email.com
+            </span>
+          </div>
+        </div>
+        <div class="profile-header-actions">
+          <button class="btn-edit-profile">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;vertical-align:middle"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Edit profile
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard -->
+  <section class="profile-dashboard">
+    <div class="container">
+      <div class="dashboard-grid">
+        <div class="dashboard-main">
+
+          <!-- Tabs -->
+          <div class="profile-tabs">
+            <button class="profile-tab active" data-tab="trips">My Trips</button>
+            <button class="profile-tab" data-tab="saved">Saved</button>
+            <button class="profile-tab" data-tab="settings">Settings</button>
+          </div>
+
+          <!-- My Trips Tab -->
+          <div class="tab-content active" id="tab-trips">
+
+            <!-- Upcoming Trip -->
+            <div class="trip-card trip-card-upcoming">
+              <div class="trip-card-inner">
+                <div class="trip-card-img">
+                  <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" alt="Soneva Fushi Resort" loading="lazy">
+                </div>
+                <div class="trip-card-body">
+                  <div class="trip-card-top">
+                    <span class="trip-badge trip-badge-upcoming-label">Upcoming</span>
+                    <span class="trip-badge trip-badge-confirmed">Confirmed</span>
+                  </div>
+                  <h3>Soneva Fushi Resort</h3>
+                  <p class="trip-card-location">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Maldives
+                  </p>
+                  <div class="trip-card-details">
+                    <span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                      Mar 15 - 22, 2026
+                    </span>
+                    <span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 11h4v4H6zM14 11h4v4h-4zM9 3h6l3 4H6l3-4z"/></svg>
+                      Beach Villa
+                    </span>
+                    <span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                      2 Adults
+                    </span>
+                  </div>
+                  <div class="trip-card-actions">
+                    <a class="trip-link" href="hotel-detail.html">View details</a>
+                    <a class="trip-link trip-link-secondary" href="#">Manage booking</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Past Trips -->
+            <h4 class="trips-section-title">Past Trips</h4>
+
+            <div class="trip-card">
+              <div class="trip-card-inner">
+                <div class="trip-card-img">
+                  <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&q=80" alt="Canaves Oia Suites" loading="lazy">
+                </div>
+                <div class="trip-card-body">
+                  <div class="trip-card-top">
+                    <span class="trip-badge trip-badge-completed">Completed</span>
+                  </div>
+                  <h3>Canaves Oia Suites</h3>
+                  <p class="trip-card-location">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Santorini, Greece
+                  </p>
+                  <div class="trip-card-details">
+                    <span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                      Jan 5 - 10, 2026
+                    </span>
+                  </div>
+                  <div class="trip-card-actions">
+                    <a class="trip-link" href="hotel-detail.html">Book again</a>
+                    <a class="trip-link trip-link-secondary" href="#">Leave review</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="trip-card">
+              <div class="trip-card-inner">
+                <div class="trip-card-img">
+                  <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&q=80" alt="The Chedi Andermatt" loading="lazy">
+                </div>
+                <div class="trip-card-body">
+                  <div class="trip-card-top">
+                    <span class="trip-badge trip-badge-completed">Completed</span>
+                    <span class="trip-stars">
+                      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      4.8
+                    </span>
+                  </div>
+                  <h3>The Chedi Andermatt</h3>
+                  <p class="trip-card-location">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Andermatt, Switzerland
+                  </p>
+                  <div class="trip-card-details">
+                    <span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                      Nov 20 - 25, 2025
+                    </span>
+                  </div>
+                  <div class="trip-card-actions">
+                    <a class="trip-link" href="hotel-detail.html">Book again</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Saved Tab -->
+          <div class="tab-content" id="tab-saved">
+            <div class="saved-grid">
+              <div class="saved-card">
+                <div class="saved-card-img">
+                  <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&q=80" alt="Viceroy Bali" loading="lazy">
+                  <button class="saved-card-remove" title="Remove">
+                    <svg width="14" height="14" viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                  </button>
+                </div>
+                <div class="saved-card-body card-body">
+                  <h4>Viceroy Bali Resort</h4>
+                  <p class="saved-card-loc">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Ubud, Bali
+                  </p>
+                  <div class="saved-card-bottom">
+                    <span class="saved-card-price">$290<small>/night</small></span>
+                    <span class="saved-card-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      4.9
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="saved-card">
+                <div class="saved-card-img">
+                  <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&q=80" alt="Santorini Hotel" loading="lazy">
+                  <button class="saved-card-remove" title="Remove">
+                    <svg width="14" height="14" viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                  </button>
+                </div>
+                <div class="saved-card-body card-body">
+                  <h4>Mystique Santorini</h4>
+                  <p class="saved-card-loc">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Oia, Santorini
+                  </p>
+                  <div class="saved-card-bottom">
+                    <span class="saved-card-price">$450<small>/night</small></span>
+                    <span class="saved-card-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      4.8
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="saved-card">
+                <div class="saved-card-img">
+                  <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&q=80" alt="Maldives Resort" loading="lazy">
+                  <button class="saved-card-remove" title="Remove">
+                    <svg width="14" height="14" viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                  </button>
+                </div>
+                <div class="saved-card-body card-body">
+                  <h4>Anantara Kihavah</h4>
+                  <p class="saved-card-loc">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Baa Atoll, Maldives
+                  </p>
+                  <div class="saved-card-bottom">
+                    <span class="saved-card-price">$620<small>/night</small></span>
+                    <span class="saved-card-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      4.9
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="saved-card">
+                <div class="saved-card-img">
+                  <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&q=80" alt="London Hotel" loading="lazy">
+                  <button class="saved-card-remove" title="Remove">
+                    <svg width="14" height="14" viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                  </button>
+                </div>
+                <div class="saved-card-body card-body">
+                  <h4>The Savoy London</h4>
+                  <p class="saved-card-loc">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    London, UK
+                  </p>
+                  <div class="saved-card-bottom">
+                    <span class="saved-card-price">$380<small>/night</small></span>
+                    <span class="saved-card-rating">
+                      <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      4.7
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Settings Tab -->
+          <div class="tab-content" id="tab-settings">
+
+            <!-- Personal Info -->
+            <div class="form-section" style="margin-bottom: 20px;">
+              <h3 class="form-section-title">Personal Information</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">First Name</label>
+                  <input type="text" class="form-input" value="John">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name</label>
+                  <input type="text" class="form-input" value="Doe">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-input" value="john.doe@email.com">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phone</label>
+                  <input type="tel" class="form-input" value="+1 (555) 123-4567">
+                </div>
+              </div>
+              <div style="margin-top: 20px;">
+                <button class="btn-save">Save changes</button>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-section" style="margin-bottom: 20px;">
+              <h3 class="form-section-title">Password</h3>
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label class="form-label">Current Password</label>
+                  <input type="password" class="form-input" placeholder="Enter current password">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">New Password</label>
+                  <input type="password" class="form-input" placeholder="Enter new password">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Confirm Password</label>
+                  <input type="password" class="form-input" placeholder="Confirm new password">
+                </div>
+              </div>
+              <div style="margin-top: 20px;">
+                <button class="btn-update">Update password</button>
+              </div>
+            </div>
+
+            <!-- Preferences -->
+            <div class="form-section" style="margin-bottom: 20px;">
+              <h3 class="form-section-title">Preferences</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Currency</label>
+                  <select class="form-select">
+                    <option selected>USD ($)</option>
+                    <option>EUR</option>
+                    <option>GBP</option>
+                    <option>JPY</option>
+                    <option>AUD</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Language</label>
+                  <select class="form-select">
+                    <option selected>English</option>
+                    <option>Spanish</option>
+                    <option>French</option>
+                    <option>German</option>
+                    <option>Japanese</option>
+                  </select>
+                </div>
+              </div>
+              <div class="toggle-row">
+                <div>
+                  <div class="toggle-row-label">Newsletter</div>
+                  <div class="toggle-row-desc">Receive travel deals and inspiration in your inbox</div>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="form-section danger-zone">
+              <h3 class="form-section-title">Danger Zone</h3>
+              <p>Once you delete your account, there is no going back. All your data will be permanently removed.</p>
+              <button class="btn-danger">Delete account</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Travel Stats Sidebar -->
+        <div class="stats-sidebar">
+          <h3>Travel Stats</h3>
+          <div class="stat-row">
+            <span class="stat-row-label">Countries visited</span>
+            <span class="stat-row-value">8</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row-label">Total trips</span>
+            <span class="stat-row-value">12</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row-label">Reviews written</span>
+            <span class="stat-row-value">6</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row-label">Member tier</span>
+            <span class="gold-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Gold
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-mark">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            </div>
+            <span class="logo-text">Voyager</span>
+          </a>
+          <p>Making travel seamless, affordable, and unforgettable for everyone.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Safety</a>
+          <a href="#">Cancellation</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="hotels.html">Hotels</a>
+          <a href="flights.html">Flights</a>
+          <a href="tours.html">Guided Tours</a>
+          <a href="transfers.html">Transfers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+          <a href="#">Licenses</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Voyager Ltd. All rights reserved.</span>
+        <div class="footer-payments">
+          <span>Visa</span>
+          <span>Mastercard</span>
+          <span>Amex</span>
+          <span>PayPal</span>
+          <span>Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Tab switching
+    document.querySelectorAll('.profile-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.getAttribute('data-tab')).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

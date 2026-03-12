@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotels — Voyager</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-solid" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+        </div>
+        <span class="logo-text">Voyager</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hotels.html" class="active">Hotels</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="transfers.html">Transfers</a></li>
+        <li><a href="deals.html" class="nav-deals">Deals</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-lang" title="Language">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          EN
+        </button>
+        <a href="profile.html" class="nav-icon-btn" title="Saved">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </a>
+        <div class="nav-divider"></div>
+        <a href="login.html" class="btn-secondary">Log in</a>
+        <a href="login.html" class="btn-cta">Sign up free</a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <img class="page-hero-bg" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80" alt="">
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <div class="container">
+        <h1>Find your perfect stay</h1>
+        <p>Browse thousands of hotels worldwide, from cozy boutique inns to luxurious five-star resorts.</p>
+        <div class="page-search">
+          <div class="page-search-bar">
+            <div class="page-search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Location</span>
+                <input type="text" placeholder="City, hotel, or destination">
+              </div>
+            </div>
+            <div class="page-search-divider"></div>
+            <div class="page-search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Check in</span>
+                <input type="text" placeholder="Add date">
+              </div>
+            </div>
+            <div class="page-search-divider"></div>
+            <div class="page-search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Check out</span>
+                <input type="text" placeholder="Add date">
+              </div>
+            </div>
+            <div class="page-search-divider"></div>
+            <div class="page-search-cell">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              <div class="cell-text">
+                <span class="cell-label">Guests</span>
+                <input type="text" placeholder="2 adults">
+              </div>
+            </div>
+            <a href="search-results.html" class="page-search-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Pills -->
+  <section class="section">
+    <div class="container">
+      <div class="categories-row">
+        <a href="search-results.html" class="category-pill">
+          <div class="category-pill-icon" style="background: rgba(6,182,212,0.08); color: #0891b2;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 10H3M21 6H3M21 14H3M17 18H3"/></svg>
+          </div>
+          <div class="category-pill-text">
+            <span class="category-pill-name">Beach</span>
+            <span class="category-pill-count">1,240 hotels</span>
+          </div>
+        </a>
+        <a href="search-results.html" class="category-pill">
+          <div class="category-pill-icon" style="background: rgba(79,70,229,0.08); color: #4f46e5;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <div class="category-pill-text">
+            <span class="category-pill-name">City</span>
+            <span class="category-pill-count">3,820 hotels</span>
+          </div>
+        </a>
+        <a href="search-results.html" class="category-pill">
+          <div class="category-pill-icon" style="background: rgba(34,197,94,0.08); color: #16a34a;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3l4 8 5-5 2 15H2L8 3z"/></svg>
+          </div>
+          <div class="category-pill-text">
+            <span class="category-pill-name">Mountain</span>
+            <span class="category-pill-count">890 hotels</span>
+          </div>
+        </a>
+        <a href="search-results.html" class="category-pill">
+          <div class="category-pill-icon" style="background: rgba(245,158,11,0.08); color: #d97706;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="category-pill-text">
+            <span class="category-pill-name">Luxury</span>
+            <span class="category-pill-count">654 hotels</span>
+          </div>
+        </a>
+        <a href="search-results.html" class="category-pill">
+          <div class="category-pill-icon" style="background: rgba(139,92,246,0.08); color: #7c3aed;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div class="category-pill-text">
+            <span class="category-pill-name">Budget</span>
+            <span class="category-pill-count">5,120 hotels</span>
+          </div>
+        </a>
+        <a href="search-results.html" class="category-pill">
+          <div class="category-pill-icon" style="background: rgba(239,68,68,0.08); color: #dc2626;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="category-pill-text">
+            <span class="category-pill-name">Boutique</span>
+            <span class="category-pill-count">1,780 hotels</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Pills -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header section-header-row">
+        <div>
+          <div class="section-label">Featured</div>
+          <h2 class="section-title">Top-rated hotels</h2>
+        </div>
+        <a href="search-results.html" class="section-link">View all hotels <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="filter-pills">
+        <button class="filter-pill active">All</button>
+        <button class="filter-pill">Beach</button>
+        <button class="filter-pill">City</button>
+        <button class="filter-pill">Luxury</button>
+        <button class="filter-pill">Boutique</button>
+        <button class="filter-pill">Budget</button>
+      </div>
+
+      <!-- Hotel Card Grid -->
+      <div class="card-grid card-grid-4">
+        <article class="card">
+          <a href="hotel-detail.html">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=500&q=80" alt="Aman Tokyo" loading="lazy">
+              <span class="card-badge">Featured</span>
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-label" style="background: var(--accent-soft); color: var(--accent);">Spa</span>
+              <span class="card-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                4.9
+              </span>
+            </div>
+            <h3 class="card-title">Aman Tokyo</h3>
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Tokyo, Japan
+            </div>
+            <div class="card-footer">
+              <span class="card-price">$680 <span class="card-price-per">/night</span></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="hotel-detail.html">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=500&q=80" alt="Four Seasons Bora Bora" loading="lazy">
+              <span class="card-badge card-badge-gold">Top Rated</span>
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-label" style="background: rgba(2,132,199,0.08); color: #0284c7;">Overwater</span>
+              <span class="card-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                4.8
+              </span>
+            </div>
+            <h3 class="card-title">Four Seasons Bora Bora</h3>
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bora Bora, French Polynesia
+            </div>
+            <div class="card-footer">
+              <span class="card-price">$950 <span class="card-price-per">/night</span></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="hotel-detail.html">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80" alt="Hotel Negresco" loading="lazy">
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-label" style="background: rgba(245,158,11,0.08); color: #d97706;">Historic</span>
+              <span class="card-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                4.7
+              </span>
+            </div>
+            <h3 class="card-title">Hotel Negresco</h3>
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Nice, France
+            </div>
+            <div class="card-footer">
+              <span class="card-price">$320 <span class="card-price-per">/night</span></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="hotel-detail.html">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500&q=80" alt="Burj Al Arab" loading="lazy">
+              <span class="card-badge card-badge-gold">Top Rated</span>
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-label" style="background: var(--accent-soft); color: var(--accent);">Luxury</span>
+              <span class="card-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                4.9
+              </span>
+            </div>
+            <h3 class="card-title">Burj Al Arab Jumeirah</h3>
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Dubai, UAE
+            </div>
+            <div class="card-footer">
+              <span class="card-price">$1,200 <span class="card-price-per">/night</span></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="hotel-detail.html">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=500&q=80" alt="Rosewood Luang Prabang" loading="lazy">
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-label" style="background: rgba(22,163,74,0.08); color: #16a34a;">Jungle</span>
+              <span class="card-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                4.8
+              </span>
+            </div>
+            <h3 class="card-title">Rosewood Luang Prabang</h3>
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Luang Prabang, Laos
+            </div>
+            <div class="card-footer">
+              <span class="card-price">$450 <span class="card-price-per">/night</span></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="hotel-detail.html">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1455587734955-081b22074882?w=500&q=80" alt="The Plaza New York" loading="lazy">
+              <span class="card-badge">Featured</span>
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-label" style="background: var(--accent-soft); color: var(--accent);">Iconic</span>
+              <span class="card-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                4.7
+              </span>
+            </div>
+            <h3 class="card-title">The Plaza Hotel</h3>
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              New York, USA
+            </div>
+            <div class="card-footer">
+              <span class="card-price">$550 <span class="card-price-per">/night</span></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="hotel-detail.html">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80" alt="Amanpuri Phuket" loading="lazy">
+              <span class="card-badge card-badge-gold">Top Rated</span>
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-label" style="background: rgba(2,132,199,0.08); color: #0284c7;">Beach</span>
+              <span class="card-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                4.9
+              </span>
+            </div>
+            <h3 class="card-title">Amanpuri Resort</h3>
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Phuket, Thailand
+            </div>
+            <div class="card-footer">
+              <span class="card-price">$780 <span class="card-price-per">/night</span></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="hotel-detail.html">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1606402179428-a57976d71fa4?w=500&q=80" alt="Ice Hotel Sweden" loading="lazy">
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-label" style="background: rgba(245,158,11,0.08); color: #d97706;">Unique</span>
+              <span class="card-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                4.6
+              </span>
+            </div>
+            <h3 class="card-title">ICEHOTEL Jukkasjarvi</h3>
+            <div class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Jukkasjarvi, Sweden
+            </div>
+            <div class="card-footer">
+              <span class="card-price">$390 <span class="card-price-per">/night</span></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header section-header-center">
+        <div class="section-label">Why Voyager</div>
+        <h2 class="section-title">Book with confidence</h2>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-indigo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Best Price Guarantee</h4>
+          <p>Find a lower price elsewhere and we'll match it, plus give you an extra 10% off.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <h4>Verified Reviews</h4>
+          <p>Every review is from a verified guest who actually stayed at the property.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-amber">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4>24/7 Support</h4>
+          <p>Our travel experts are available around the clock to help with any questions.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h4>Free Cancellation</h4>
+          <p>Plans change. Most of our hotels offer free cancellation up to 24 hours before check-in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-mark">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            </div>
+            <span class="logo-text">Voyager</span>
+          </a>
+          <p>Making travel seamless, affordable, and unforgettable for everyone.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Safety</a>
+          <a href="#">Cancellation</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="hotels.html">Hotels</a>
+          <a href="flights.html">Flights</a>
+          <a href="tours.html">Guided Tours</a>
+          <a href="transfers.html">Transfers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+          <a href="#">Licenses</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Voyager Ltd. All rights reserved.</span>
+        <div class="footer-payments">
+          <span>Visa</span>
+          <span>Mastercard</span>
+          <span>Amex</span>
+          <span>PayPal</span>
+          <span>Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

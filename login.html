@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voyager — Log In or Sign Up</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-solid" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+        </div>
+        <span class="logo-text">Voyager</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="transfers.html">Transfers</a></li>
+        <li><a href="deals.html" class="nav-deals">Deals</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-lang" title="Language">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          EN
+        </button>
+        <a href="profile.html" class="nav-icon-btn" title="Saved">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </a>
+        <div class="nav-divider"></div>
+        <a href="login.html" class="btn-secondary">Log in</a>
+        <a href="login.html" class="btn-cta">Sign up free</a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Auth Section -->
+  <section class="page-header" style="padding: 140px 0 80px;">
+    <div class="container">
+      <div class="page-header-content">
+        <h1 id="authHeading">Welcome back</h1>
+        <p id="authSubheading">Log in to your Voyager account to continue your journey</p>
+      </div>
+
+      <!-- Auth Tabs -->
+      <div class="filter-pills" style="margin-bottom: 0;">
+        <button class="filter-pill active" id="tabLogin" onclick="showLogin()">Log in</button>
+        <button class="filter-pill" id="tabSignup" onclick="showSignup()">Sign up</button>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 48px 0 80px; background: var(--surface-sunken);">
+    <div class="container" style="max-width: 520px;">
+
+      <!-- Login Form -->
+      <div id="loginView" class="auth-view">
+        <div class="form-section">
+          <form onsubmit="return false;">
+            <div class="form-group" style="margin-bottom: 18px;">
+              <label class="form-label" for="login-email">Email</label>
+              <input class="form-input" id="login-email" type="email" placeholder="you@example.com" autocomplete="email">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 10px;">
+              <label class="form-label" for="login-password">Password</label>
+              <div style="position: relative;">
+                <input class="form-input" id="login-password" type="password" placeholder="Enter your password" autocomplete="current-password" style="padding-right: 48px;">
+                <button type="button" class="auth-password-toggle" onclick="togglePassword('login-password', this)" aria-label="Show password">
+                  <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <svg class="eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div style="text-align: right; margin-bottom: 24px;">
+              <a href="#" style="font-size: 13px; font-weight: 600; color: var(--accent);">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-primary btn-lg" style="width: 100%; border-radius: 12px; background: var(--accent); font-weight: 700;">Log in</button>
+          </form>
+
+          <!-- Divider -->
+          <div class="auth-divider">
+            <span>or continue with</span>
+          </div>
+
+          <!-- Social Buttons -->
+          <div class="auth-social-buttons">
+            <button class="auth-social-btn" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              Google
+            </button>
+            <button class="auth-social-btn" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              Apple
+            </button>
+            <button class="auth-social-btn" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </button>
+          </div>
+
+          <p class="auth-toggle-text">
+            Don't have an account? <a href="#" onclick="showSignup(); return false;">Sign up</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signupView" class="auth-view" style="display: none;">
+        <div class="form-section">
+          <form onsubmit="return false;">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="signup-first">First name</label>
+                <input class="form-input" id="signup-first" type="text" placeholder="John" autocomplete="given-name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="signup-last">Last name</label>
+                <input class="form-input" id="signup-last" type="text" placeholder="Doe" autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 18px;">
+              <label class="form-label" for="signup-email">Email</label>
+              <input class="form-input" id="signup-email" type="email" placeholder="you@example.com" autocomplete="email">
+            </div>
+
+            <div class="form-group" style="margin-top: 18px;">
+              <label class="form-label" for="signup-password">Password</label>
+              <div style="position: relative;">
+                <input class="form-input" id="signup-password" type="password" placeholder="Create a password" autocomplete="new-password" oninput="checkStrength(this.value)" style="padding-right: 48px;">
+                <button type="button" class="auth-password-toggle" onclick="togglePassword('signup-password', this)" aria-label="Show password">
+                  <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <svg class="eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </button>
+              </div>
+              <div class="auth-strength-bars">
+                <div class="auth-strength-bar" id="str1"></div>
+                <div class="auth-strength-bar" id="str2"></div>
+                <div class="auth-strength-bar" id="str3"></div>
+              </div>
+              <div class="auth-strength-label" id="strengthLabel"></div>
+            </div>
+
+            <div class="form-group" style="margin-top: 18px;">
+              <label class="form-label" for="signup-confirm">Confirm password</label>
+              <div style="position: relative;">
+                <input class="form-input" id="signup-confirm" type="password" placeholder="Confirm your password" autocomplete="new-password" style="padding-right: 48px;">
+                <button type="button" class="auth-password-toggle" onclick="togglePassword('signup-confirm', this)" aria-label="Show password">
+                  <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <svg class="eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="auth-checkbox" style="margin-top: 24px;">
+              <input type="checkbox" id="terms">
+              <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+
+            <button type="submit" class="btn-primary btn-lg" style="width: 100%; border-radius: 12px; background: var(--accent); font-weight: 700; margin-top: 24px;">Create account</button>
+          </form>
+
+          <!-- Divider -->
+          <div class="auth-divider">
+            <span>or sign up with</span>
+          </div>
+
+          <!-- Social Buttons -->
+          <div class="auth-social-buttons">
+            <button class="auth-social-btn" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              Google
+            </button>
+            <button class="auth-social-btn" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              Apple
+            </button>
+            <button class="auth-social-btn" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </button>
+          </div>
+
+          <p class="auth-toggle-text">
+            Already have an account? <a href="#" onclick="showLogin(); return false;">Log in</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Trust Features -->
+  <section style="padding: 0; background: white;">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-indigo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Secure Booking</h4>
+          <p>Your data is protected with bank-level encryption</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h4>Best Price Guarantee</h4>
+          <p>Find a lower price and we will match it</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-amber">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h4>2M+ Travelers</h4>
+          <p>Join our growing community of happy adventurers</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h4>24/7 Support</h4>
+          <p>Our team is here to help anytime, anywhere</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-mark">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            </div>
+            <span class="logo-text">Voyager</span>
+          </a>
+          <p>Making travel seamless, affordable, and unforgettable for everyone.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Safety</a>
+          <a href="#">Cancellation</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="hotels.html">Hotels</a>
+          <a href="flights.html">Flights</a>
+          <a href="tours.html">Guided Tours</a>
+          <a href="transfers.html">Transfers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+          <a href="#">Licenses</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Voyager Ltd. All rights reserved.</span>
+        <div class="footer-payments">
+          <span>Visa</span>
+          <span>Mastercard</span>
+          <span>Amex</span>
+          <span>PayPal</span>
+          <span>Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Auth view toggling
+    var loginView = document.getElementById('loginView');
+    var signupView = document.getElementById('signupView');
+    var tabLogin = document.getElementById('tabLogin');
+    var tabSignup = document.getElementById('tabSignup');
+    var authHeading = document.getElementById('authHeading');
+    var authSubheading = document.getElementById('authSubheading');
+
+    function showSignup() {
+      loginView.style.display = 'none';
+      signupView.style.display = 'block';
+      tabLogin.classList.remove('active');
+      tabSignup.classList.add('active');
+      authHeading.textContent = 'Create your account';
+      authSubheading.textContent = 'Start exploring the world with Voyager';
+    }
+
+    function showLogin() {
+      signupView.style.display = 'none';
+      loginView.style.display = 'block';
+      tabSignup.classList.remove('active');
+      tabLogin.classList.add('active');
+      authHeading.textContent = 'Welcome back';
+      authSubheading.textContent = 'Log in to your Voyager account to continue your journey';
+    }
+
+    // Password show/hide toggle
+    function togglePassword(inputId, btn) {
+      var input = document.getElementById(inputId);
+      var eyeOpen = btn.querySelector('.eye-open');
+      var eyeClosed = btn.querySelector('.eye-closed');
+      if (input.type === 'password') {
+        input.type = 'text';
+        eyeOpen.style.display = 'none';
+        eyeClosed.style.display = 'block';
+      } else {
+        input.type = 'password';
+        eyeOpen.style.display = 'block';
+        eyeClosed.style.display = 'none';
+      }
+    }
+
+    // Password strength indicator
+    function checkStrength(password) {
+      var bar1 = document.getElementById('str1');
+      var bar2 = document.getElementById('str2');
+      var bar3 = document.getElementById('str3');
+      var label = document.getElementById('strengthLabel');
+      bar1.className = 'auth-strength-bar';
+      bar2.className = 'auth-strength-bar';
+      bar3.className = 'auth-strength-bar';
+      label.className = 'auth-strength-label';
+      label.textContent = '';
+      if (password.length === 0) return;
+      var score = 0;
+      if (password.length >= 6) score++;
+      if (password.length >= 10) score++;
+      if (/[A-Z]/.test(password)) score++;
+      if (/[0-9]/.test(password)) score++;
+      if (/[^A-Za-z0-9]/.test(password)) score++;
+      if (score <= 2) {
+        bar1.classList.add('weak');
+        label.classList.add('weak');
+        label.textContent = 'Weak';
+      } else if (score <= 3) {
+        bar1.classList.add('medium');
+        bar2.classList.add('medium');
+        label.classList.add('medium');
+        label.textContent = 'Medium';
+      } else {
+        bar1.classList.add('strong');
+        bar2.classList.add('strong');
+        bar3.classList.add('strong');
+        label.classList.add('strong');
+        label.textContent = 'Strong';
+      }
+    }
+  </script>
+
+</body>
+</html>

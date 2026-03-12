@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voyager — Deals & Special Offers</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-solid" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+        </div>
+        <span class="logo-text">Voyager</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="transfers.html">Transfers</a></li>
+        <li><a href="deals.html" class="nav-deals active">Deals</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-lang" title="Language">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          EN
+        </button>
+        <a href="profile.html" class="nav-icon-btn" title="Saved">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </a>
+        <div class="nav-divider"></div>
+        <a href="login.html" class="btn-secondary">Log in</a>
+        <a href="login.html" class="btn-cta">Sign up free</a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Deals Hero -->
+  <section class="page-hero">
+    <img class="page-hero-bg" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80" alt="">
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <div class="container">
+        <h1>Exclusive deals &amp; offers</h1>
+        <p>Save big on handpicked travel experiences — limited time only</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Pills + Deals Grid -->
+  <section class="section">
+    <div class="container">
+
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="hotel">Hotels</button>
+        <button class="filter-pill" data-filter="flight">Flights</button>
+        <button class="filter-pill" data-filter="tour">Tours</button>
+      </div>
+
+      <div class="card-grid">
+
+        <!-- Deal 1: Hotel -->
+        <article class="card" data-category="hotel">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Ayana Resort & Spa Bali" loading="lazy">
+            <span class="card-badge card-badge-red">-40%</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Ayana Resort & Spa Bali</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Jimbaran, Bali
+            </p>
+            <div class="card-footer">
+              <div>
+                <span class="card-price">$198</span>
+                <span class="card-price-was">$330</span>
+              </div>
+              <span class="card-price-per">/night</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Deal 2: Flight -->
+        <article class="card" data-category="flight">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&q=80" alt="Los Angeles to Tokyo" loading="lazy">
+            <span class="card-badge card-badge-red">-22%</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Los Angeles to Tokyo Round Trip</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+              ANA Airlines, Direct
+            </p>
+            <div class="card-footer">
+              <div>
+                <span class="card-price">$620</span>
+                <span class="card-price-was">$795</span>
+              </div>
+              <span class="card-price-per">/person</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Deal 3: Tour -->
+        <article class="card" data-category="tour">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&q=80" alt="Costa Rica Adventure" loading="lazy">
+            <span class="card-badge card-badge-gold">Best value</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">5-Day Costa Rica Adventure</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Flight + Hotel + Tours
+            </p>
+            <div class="card-footer">
+              <div>
+                <span class="card-price">$1,450</span>
+                <span class="card-price-was">$2,300</span>
+              </div>
+              <span class="card-price-per">/person</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Deal 4: Hotel -->
+        <article class="card" data-category="hotel">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=600&q=80" alt="Grand Hotel Tremezzo" loading="lazy">
+            <span class="card-badge card-badge-red">-30%</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Grand Hotel Tremezzo</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Lake Como, Italy
+            </p>
+            <div class="card-footer">
+              <div>
+                <span class="card-price">$315</span>
+                <span class="card-price-was">$450</span>
+              </div>
+              <span class="card-price-per">/night</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Deal 5: Flight -->
+        <article class="card" data-category="flight">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?w=600&q=80" alt="Chicago to Barcelona" loading="lazy">
+            <span class="card-badge card-badge-red">-25%</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Chicago to Barcelona Round Trip</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+              Iberia, 1 stop
+            </p>
+            <div class="card-footer">
+              <div>
+                <span class="card-price">$410</span>
+                <span class="card-price-was">$545</span>
+              </div>
+              <span class="card-price-per">/person</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Deal 6: Tour -->
+        <article class="card" data-category="tour">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80" alt="Dubai Luxury Escape" loading="lazy">
+            <span class="card-badge card-badge-red">-32%</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">4-Night Dubai Luxury Escape</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Flight + 5-Star Hotel
+            </p>
+            <div class="card-footer">
+              <div>
+                <span class="card-price">$1,080</span>
+                <span class="card-price-was">$1,590</span>
+              </div>
+              <span class="card-price-per">/person</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Deal 7: Hotel (Bora Bora) -->
+        <article class="card" data-category="hotel">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80" alt="Overwater Villa Bora Bora" loading="lazy">
+            <span class="card-badge card-badge-red">-45%</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Overwater Villa in Bora Bora</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              French Polynesia &middot; 7 nights all-inclusive
+            </p>
+            <div class="card-footer">
+              <div>
+                <span class="card-price">$2,750</span>
+                <span class="card-price-was">$5,000</span>
+              </div>
+              <span class="card-price-per">/person</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Deal 8: Tour (Swiss Alps) -->
+        <article class="card" data-category="tour">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=600&q=80" alt="Swiss Alps Retreat" loading="lazy">
+            <span class="card-badge card-badge-red">-38%</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Swiss Alps Ski & Spa Retreat</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Zermatt, Switzerland &middot; 5 nights + ski pass
+            </p>
+            <div class="card-footer">
+              <div>
+                <span class="card-price">$1,890</span>
+                <span class="card-price-was">$3,050</span>
+              </div>
+              <span class="card-price-per">/person</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust / Features -->
+  <section class="section">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-indigo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Best Price Guarantee</h4>
+          <p>Find a lower price and we will match it, no questions asked.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4>24/7 Support</h4>
+          <p>Our travel experts are available around the clock to help you.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-amber">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h4>Handpicked Deals</h4>
+          <p>Every offer is curated by our team for quality and value.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon trust-icon-green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <h4>Free Cancellation</h4>
+          <p>Flexible bookings with free cancellation on most deals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-mark">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            </div>
+            <span class="logo-text">Voyager</span>
+          </a>
+          <p>Making travel seamless, affordable, and unforgettable for everyone.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Safety</a>
+          <a href="#">Cancellation</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="hotels.html">Hotels</a>
+          <a href="flights.html">Flights</a>
+          <a href="tours.html">Guided Tours</a>
+          <a href="transfers.html">Transfers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+          <a href="#">Licenses</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Voyager Ltd. All rights reserved.</span>
+        <div class="footer-payments">
+          <span>Visa</span>
+          <span>Mastercard</span>
+          <span>Amex</span>
+          <span>PayPal</span>
+          <span>Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
